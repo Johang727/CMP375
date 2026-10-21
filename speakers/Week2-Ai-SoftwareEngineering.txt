@@ -1,0 +1,109 @@
+Topic: AI in Software Engineering - Week 2
+
+1. How often do you use AI in your work? If a new method needs to be written, does AI write the first draft then its touched up by someone? Do you write the code then ask AI to review it?
+2. I've seen Copilot integration in GitHub PRs, is this something you see at your company? What's its level of power? Does it need to pass the AI, then a reviewer, or is the AI there to point out potential mistakes and that's all? What's the pipeline?
+3. How do you handle bigger files or projects that need more context? What type of AI is used in that situation?
+4. What does a standard prompt look like when asking an AI for assistance?
+
+Notes:
+
+Banking Software
+
+- Banking information / sensitive information.
+  - Be careful what information is exposed to agents.
+  - Dummy information / demo accounts to work with.
+
+Used every day, how they code & do work. CodeX, experimenting with Claude Code.
+
+CodeX:
+
+- Planning, learn about the process they are coding in; to have a base understanding.
+- "Review this code in this repo & tell me what it does.
+- Learn & research the area.
+
+Gotta keep tight rails on the AI or else it will hallucinate. Plan step by step & in increments.
+
+Disadvantages in AI:
+
+- Someone new into tech:
+  - AI Agents doing something for you, you don't learn how to do it.
+- Real risk of lazy / vibe coding engineers.
+  - Use Agents to code & plan without reading and comprehending.
+
+Software Engineering, Skill that mattered the most:
+
+- Problem solving skills & the mindset that you can figure everything out.
+- AI is doing a lot of that work for us, but we work in a different way & that problem solving skill is still essential.
+- Don't need the hands on skill anymore of typing out the code, but still need the general understanding and the way to understand the problem.
+
+What AI could do better:
+
+- A lot of things
+- Each model is different, new models are buggy, but a bit better. Understanding context.
+- LLMs are pattern recognition, if there's no pattern / poor patterns
+- If you don't understand the context and the AI doesn't have the big picture, it will hallucinate HARD & break principles with confidence.
+
+How do you fix a bug in code that AI has made; how is debugging harder/easier?
+
+- AI produced too much code, scope creeping. +25 files
+  - Step through it, doesn't pass tests.
+  - Starting over.
+
+- AI writes good unit tests. Tests the bugs & intentionally fail.
+  - Iterate through with AI.
+Should there be less or more AI use in the job?
+
+- More of _how_ AI is used.
+  - Guard rails, intentionally. 
+  - Use it for small scoped things 
+
+
+Standing Prompt:
+ - As few words as possible
+   - Here is your role, this is the task, and the skills to use
+   - Backstory, tickets, research this, look at the repo, understanding end points and business logic.
+
+Consistency in AI is a big part.
+ - Prompt the AI the same, give it the same skills, give the same information.
+ - Still have to check it, still have to review. 
+
+AI in PRs:
+ - Couple of programs run, posts comments on the PRs.
+ - Not widely used / well used. Adds noise to PRs, doesn't know why these changes are used. Not super helpful, not a lot of weight is put in. 
+
+ - PR Skill:
+   - Coding standards of the org., tell it the DevOps URL, review PRs, review story, and review based on the standards.
+
+ - Not how much, but *how* you use it.
+
+Claude coding:
+ - Baseline code quality is a bit higher than CodeX standards.
+
+Codex is OpenAI's. Claude is Anthropic. 
+
+How is AI changing what companies expect of entry level engineers.
+ - How do we increase quality of what we are producing? AI is a tool, not a replacement. Replaces some of the things done on the job, but not the job itself. 
+
+Does a programmer still have to document?
+ - Sometimes, depends on the team you work on.
+   - Documentation is preferred on bigger tickets / on lots of code changes / functions & business logic changes.
+   - Documentation is preferred even more with AI use; make sure if it actually does XYZ for peer reviews. 
+   - AI is the coding, so lets prove that its actually doing what it says. 
+   - Hard coding values because of XYZ, provides better context so it doesn't change code. Documentation sets guardrails.
+
+
+Will less software engineers be needed in the future?
+ - Might need *more* engineers to read everything AI is coding. AI can code way faster than anyone, but the skill is reading and understanding. 
+   - Takes good engineers to do that, job will change. Will review code. 
+
+Training:
+ - Brought in OpenAI for training on Codex.
+   - Trained based on roles.
+ - LinkedIn learning: Learning how to prompt & how LLMs function. 
+
+If we don't understand how we are using AI, that's dangerous.
+
+They build agents, skills, gpts. All under Codex. 
+
+Connect it to the DevOps cycle: Jira, etc.
+
