@@ -1,0 +1,29 @@
+Focus on repos with >500 stars & growth speed
+ - SOmetimes they go viral
+
+ AI Egneineering: THe process of building applications with foundation models
+  - LLMs can mean foundation models
+  - Foundation models are AI models trained on massive datasets to perform a wide range of tasks with minimal fine-tuning
+
+Model as a Service
+ - Anyone can build applications
+
+Open Ended Evaluation (she collapsed the previous point, that's a good idea.)
+ - Can be used for many paplications
+
+ Chatbot arena,
+
+ AI-as-a-judge: a model determines which human prefers
+
+ Feature engineering: Model is more likely to halluycinate when it doesn't have the right info.
+
+
+RAG:
+ - Retrieval-Augmented Generation: improve output from foudation using supplemental external data
+
+Vector Database
+ - Specialized system designed to store, manage, and query high-dimensional vector embeddings
+
+ <>
+
+

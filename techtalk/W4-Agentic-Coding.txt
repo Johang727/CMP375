@@ -1,0 +1,85 @@
+Mariene Mhangami - Software Engineer. Vice Chair for Python.
+
+Zimbopie---gives young Zimbabweaon young women access to resources in tech.
+
+Agentic Coding
+
+Initially, it was code completion, writing a function and the LLM writes the next line. Then LLM-Powered Code Generation started: models made for code. LLMs were getting better at code, but there was manual work. VSC added agent mode to copilot, the AI completes the task entirely, executing tasks in the terminal, debugging code. Full coding workspace context.
+
+IDE:
+ - Copilot in VSC
+ - Cursor
+ - Windsurf
+
+CLI:
+ - Copilot CLI
+ - Claude Code
+ _ Aider
+
+Web:
+ - ChatGPT
+
+Custom:
+ - SDKs
+
+
+An AI Agent is an LLM that calls tools in a loop to achieve goals.
+
+The Agentic Loop in Coding is
+
+[Prompt] -> [Gather Context] -> [Take Action] -> [Verify] -. [Gather Context] ...
+
+
+* Gathering Context:
+
+The first thing the AI is going to do is gather context, make sure the AI *has* the proper context.
+
+Attach context to the chat.
+ - Attach issues to the chat.
+
+The primary issue that devs has is that the AI generates code that's overly complex. Attaching a example code file will make the AI follow the conventions of the base file.
+
+Instruction files: copilot-instructions.md, cursor.rules, claude.md, agents.md (becoming the standard)
+
+The instructions file is a system prompt, at least for copilot.
+    "You're Marline's AI assistant for the ACM TechTalk. If the user says hello ..."
+This applies to custom agents (using SDK) or the chat in the repository if under .github/copiliot-instructions.md
+
+To specify particular things:
+.github/agents/reviewer-agent.md
+
+It will display in the chat (and you can probably call it in a way under the SDK)
+
+Still a standard system / instruction prompt, no specific syntax other than english (with markdown)
+
+* Take Action:
+Takes action with tools, edit, execute, read, web, etc.
+
+Additional tools can be added alongside the built in tools
+ - Deployment, etc.
+
+MCP - Model Context Protocol
+ - Open protocol by anthropic, standardize the way context is provided to LLMs
+ - @mcp to find extensions with vetted servers
+
+
+Agent Skills: reusable workflow
+
+SKILL.md, can include tools, MCP servers, scrtipts, etc.
+
+.github/skills/email/SKILL.md
+
+* Verify
+Tell the AI to write unit tests. The agent can test the website function.
+ - Sometimes the AI will write tests that ALWAYS pass, so playwright is a good way to make sure that functions
+
+Best practices:
+Important for humans to write skills.md or agents.md, performance increases by 16 pts. Generated skills have negative performance.
+
+Version Control: Commit often on seperate branches.
+
+Think before opening PRs on other's repositories. Critical code needs to have human review (acute, business.)
+
+
+
+

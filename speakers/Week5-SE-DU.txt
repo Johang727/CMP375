@@ -1,0 +1,70 @@
+Todd Finner
+
+1. Do you have copilot or any other AI agent review pull requests or summarize changes?
+ - CI & PRs: GitHub CI Builds runs regression & testing; if that doesn't pass, it can't get checked in.
+  - Burn through a lot of GH Token usage.
+  - Run the local test suite instead of making a PR
+
+2. Do you use AI to write the code, document the code, both, or neither? Guide me through the prompts used.
+ - Documentation:
+   - Documenting Code
+   - Technical Specification, User Specification, Testing by AI
+   - Project manifest
+   - Laws of the project are: every output has to be testable
+   - Charactarization testing
+   - ENd-to-end testing: 94% accountability is strong
+
+   - Kubernetes, get all hardware and spec information & the AI will have the tech stack installed, and have it merge it together
+   - User guide: sub-agent, non-programming persona + admin persona; walk through ui in in its sandbox.
+   - Testing documentation: unit tests generated with the user guide.
+
+3. Is AI used in client communication? If so, do you think too much is used or too little?
+ -
+
+The only issue with this is I don't know what else to ask other than what was already discussed.
+
+----
+
+Until they got to Doane last September, there was nothing major.
+
+First projects tasked with, use of AI well is good.
+
+To them, AI is no different than what was avaliable before.
+
+Problem solving: something to let your wheels turn and probably not get the right answer. The ones who put in the effort are the best hires. Embrace problem solving and learn it: can use a tool to speed up, but the knowledge will affect the results. Garbage in: Garbage out. Knowledge gets better results.
+
+A lot of their problem solving came from efficient googling back then. AI is no different: just faster and more efficient.
+
+Where has AI helped you the most:
+ - Documentation and Unit Testing
+
+Have the understanding of what you are asking for.
+ - Data obj relation, good db design, the biggest thing that stands its not about the language, but the performance.
+
+Treat AI as a peer: take a persona & have it explain something / walk you through something / why it chose it this way. Would rather humanize it when treating it as a peer: act like the senior dev, treat the AI like a junior dev.
+
+Which parts can AI improve the most:
+ - Documentation, testing, & readability.
+
+Human creativity and problem solving?:
+ - Initial assessment. The AI will never be in the same situation. The first two Identifying and Research stages + the very end stage.
+
+Don't use | Not allowed to:
+ - PII regulated data, can't pass a full dataset to an AI Agent. Mockup data with trends.
+
+
+Students learning with AI:
+ - Higher end with a paid plan. Recommend Codex, Claude, Copilot Development. (I have no money :c)
+
+Biggest disadvantage of AI writing code:
+ - Niche subject matter
+    - Beef company, very niche from technology standpoint. Plenty of markets out there like that.
+    - No global or universal spec: without feeding it all the data, it can't have all the knowledge.
+
+Claude has global.md
+
+More or less AI:
+ - The gray area where AI is smart or dumb; token context.
+ - Charts that depend on model, each one has its own strength. Drop in the performance is drastic, correction of same mistakes.
+
+A lot of people have the artisitc approach, pride in work. AI can worth with you to fill in your gaps.

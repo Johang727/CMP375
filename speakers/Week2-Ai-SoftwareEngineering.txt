@@ -1,9 +1,17 @@
 Topic: AI in Software Engineering - Week 2
 
 1. How often do you use AI in your work? If a new method needs to be written, does AI write the first draft then its touched up by someone? Do you write the code then ask AI to review it?
-2. I've seen Copilot integration in GitHub PRs, is this something you see at your company? What's its level of power? Does it need to pass the AI, then a reviewer, or is the AI there to point out potential mistakes and that's all? What's the pipeline?
+ - They use Codex every day in the field, mostly for understanding repositories on projects they are taking over. Code is written by AI and reviewed + documented by a human; prove what the AI is doing is right.
+
+2. I've seen Copilot integration in GitHub PRs, is this something you see at your company? What's its level of power? Does it need to pass the AI, then a reviewer, or is the AI there to point out potential mistakes and that's all? What's the pipeline? (I didn't ask it in the same way.)
+ - They have the AI run over the code & add comments, but it's not very useful since it doesn't know the context of why X was done. Adds a lot of unnecessary noise.
+
 3. How do you handle bigger files or projects that need more context? What type of AI is used in that situation?
+ - AI is better kept on smaller files & at a smaller scope; too much information can cause AI to hallucinate.
+
+
 4. What does a standard prompt look like when asking an AI for assistance?
+ - As little as possible, too much information can cause errors. Not being specific can cause issues as well. Offer a definitive role, backstory, additional information that the AI needs to work.
 
 Notes:
 
@@ -18,7 +26,7 @@ Used every day, how they code & do work. CodeX, experimenting with Claude Code.
 CodeX:
 
 - Planning, learn about the process they are coding in; to have a base understanding.
-- "Review this code in this repo & tell me what it does.
+- "Review this code in this repo & tell me what it does."
 - Learn & research the area.
 
 Gotta keep tight rails on the AI or else it will hallucinate. Plan step by step & in increments.

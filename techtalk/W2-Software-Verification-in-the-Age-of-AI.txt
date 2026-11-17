@@ -1,0 +1,56 @@
+The programmer (software engineer) is essential to orchastrate the agents.
+
+Vibe coding offers "mostly" working code, which is good enough for many people.
+
+Skill Leveling - Type L:
+    Anyone can enter the field and offer the same service as before. Replaces skill.
+
+
+Skill Enhancing - Type E:
+    Requires the prior knowledge and only assists. Does not replace skill.
+
+Bullshit Avoidance Discipline:
+    Base our deductions on latest and processional tool versions; on measured evidence. Distinguish between early hiccups and long-term properties.
+
+The claim for AI: Just state what you need, no need to program. This has happened many times historically.
+    COBOL: No longer ASM, but COBOL programmers emerged.
+Abstracting this, can we say the same thing with AI? Is it just AI *supported?*
+
+With high level approaches, you don't need to look at the raw ASM / BIN. With AI, you need to look at the generated code.
+
+A, B, C levels:
+
+Acute:
+ - Pacemaker software, things that if coded incorrectly, people can die.
+Business:
+ - The middle, very important software, but people won't necessarily die, but can cause big losses (data leaks, etc.).
+Casual:
+ - Doesn't need to apply to software engineer protocols. A simple test program, research parser for scientist, personal project that doesn't work with user data.
+
+AI has significantly changed the casual market, but what happens for A & B?
+
+NVIDIA wants engineers to be directors and claims that AI makes writing code obsolete. However, they are posting jobs for Software Engineers they have deemed not smart.
+
+Amazon had lost 120K orders due to AI code usage. 20% of the code references packages that do not exist.
+
+Coding is only 10-20% of Software Engineering. RADIS!!!
+
+LLMs make mistakes, they hallucinate. Confidently reference things that don't exist. They can loop, digging deeper in the hole of delusion. AI is based on probability.
+
+Assuming  modules are independently correct with 99.9%, with 1000 modules, the chance is 37%.
+
+AI is creative, Software Engineers need to be precise.
+
+The process:
+Specify a little -> Implement a little -> Fix and iterate.
+
+AI can generate a glossary well. Documentation and summary.
+
+Coding agents is just one part of the process. There are plenty others: requirement agents, architecture agent, contracting agent, test generation agent, testing agent, proof agent, and deployment agent.
+
+AI is not ready for A and B, but C can essentially be automated. The only way to use AI in A & B is to have formal verification and human responsibility.
+
+AI is Skill Leveling on Layer C, but Skill Enhancing on Layer A & B. Every SE needs to master modern AI.
+    A little unclear for entry level / junior jobs.
+
+

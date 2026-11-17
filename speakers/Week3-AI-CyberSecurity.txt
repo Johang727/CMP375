@@ -1,0 +1,44 @@
+Questions:
+1. Describe the process of ethical hacking (or hacking in general) using AI.
+2. How has AI helped or hindered the process of finding vulnerabilities in software?
+3. With the rise of vibe coding, how has this affected security on the internet?
+
+Notes:
+
+Using AI to learn and break down complex concepts into easy words.
+ - They used it like: "Tell me like a 5 yr old, 10 yr old, 15 yr old, college student"
+
+Mistakes using AI in CyberSec
+ - If you don't use an internal AI, you can leak personal information.
+ - Full reliance on AI.
+    - Using AI to write code: these people don't know how to write a line of code. It might reach out to external sources / tools and can import malicious files.
+ - Putting too much trust in AI
+
+How does AI help you as a security analyst
+ - If there's a login from China
+ - Understanding code, sh.
+ - Incident lasted 3 days, 15K computers, logging data every second, AI is used to summarize.
+ - Spam emails, phishing emails
+
+Every tool used has its own chatbot
+
+With new AI techs, what CyberSec challenge might arise:
+ - Attack speeds---how fast attacks are being performed.
+
+Vibe coding trend: people who don't know how to code
+  - Something works, but not securely.
+
+They don't use AI in communications, they prefer it to be personal.
+ - We are losing soft skills in AI, and people are using AI for every email.
+
+Every company at a conference just speaks about AI
+
+People are using too much AI, the speaker is pro-AI, however, they think people rely too much on it.
+ - There was an update where Copilot was blocked by accident and people were unable to do their job because they were relying too much.
+
+Writing queries for all the data, be specific about what you ask about the tools.
+
+Learning new tools.
+
+Is there more or less things to do now that AI helps?
+ - Depends.

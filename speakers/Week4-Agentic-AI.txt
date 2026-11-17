@@ -1,0 +1,84 @@
+Steven Carlson: Staff AI Security Engineer
+
+1. How do we ensure an AI doesn't use a tool in an unintended way?
+ - Good training, layers, and auditing. Talks to the orchastrator and checks with another AI (i dont recall which) to verify plans.
+2. Are safeguards just within the system prompt, or is there external software that verifies if the provided request is safe?
+ - Proxy catches unsecure requests before the AI reads them.
+3. Recovery plan if an AI agent causes damages?
+ - Standard business practice of database backups, etc. Disaster recovery plan doesn't change much. Retraining of AI after forensics.
+
+Agents could be kicked off from anywhere.
+
+Understand the context.
+
+Interact on their own, monitor systems & provide fixed with them.
+
+Service staff and systems.
+
+Which to give an AI agent vs self
+ - Used to be: If can take care of 15m, DIY. If its > 15m, hand it over to Security Steve, the orchastrator.
+   - If there's something super sensitive, he will take supervisor role.
+
+Agents are self-healing and self-monitoring, agents fix themselves. If an agent does something wrong, it will PR itself, CI/CD itself.
+
+Build with the agents, but if agents are deployed and developed, its hands-off.
+
+Most of the job is about documentation and explanation ?
+
+Do you use anthropic api or use own
+
+Deploy agents to help customers design data
+
+Agents are self contained, pull from one specific customer (?)
+
+Tank Vuln triage Aikido / Wiz findings
+ - MCP connectors, the rules on what the AI has access to.
+ - Scoped down permission
+ - SS passes off instructions to Tank in MD
+
+The Architect reviews what a change does, what's going to be deployed.
+
+Top-half are agents
+bottom half is different
+
+Orchastrator that fires off the agents.
+
+AIs feed into others
+
+Each AI modifies the MD file, suggesting which agent is next up. RAG to condense data to make it efficient.
+
+Prompt injection; on top of the agents, there's a proxy, filtering what the AI recieves. LiteLLM has a proxy you can deploy.
+
+Permissions rwx
+
+A lot of companies don't wanna touch AI, but they want things to do DevOps for them. Privacy Policies.
+
+Security, IT, + DevOps.
+
+Going through certifications to understand what is going on in the market.
+
+Frameworks used:
+ - A lot of Python, but that's because he was a Software Engineer
+
+Linking prompts and requests and logs, you can constantly assess what the AIs are doing. Guardrails. Always looking at logs then self heal.
+
+Initially, the agents were monitored / ran independently until the company was comfortable with them. Now they take care of themselves.
+
+Risk of self-healing, autonomy?
+ - Understood the risk, everyone is going to use the work, meetings if we are still okay with the risk.
+ - Do we wanna to log every message?
+
+ More or less AI use:
+  - Struck a good balance; a lot of the workload that would take hours (deploying tailscale or managing all indep. configs) would be behind an agent and be automated.
+  - Wouldn't take away, but wouldn't add on more either.
+  - Discuss bigger programs since agents take care of the small things that would take quarters.
+
+
+Disadvantages or Problems?
+ - In the last two months, certain people relying in AI too much. All slack messages are anthropic led, couldn't tell if it was an agent, anthropic, or the person. Did X actually mean this? If messages come from AI, there must be a disclaimer.
+
+ Recovery plan?
+  - Backup strategy for databases, before LLMs were introduced, backups are done to cold storage.
+  - John Wick does something really bad and causes an outage: 4 to 6 hrs recovery, or even 15 minutes.
+  - GitBack: Repos go to cold storage
+
