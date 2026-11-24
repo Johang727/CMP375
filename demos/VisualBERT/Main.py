@@ -97,15 +97,16 @@ print(f"Non-match probability (index 1): {match_probs[1].item():.4f} ({match_pro
 
 print("\n\nPrediction")
 
-# Right after `visual_embeds` is constructed:
+# 5. Multi-Mask Prediction + Zeroed visual_embeds Ablation
 ablation_runs = {
     "With image features": visual_embeds,
     "Zeroed visual_embeds": torch.zeros_like(visual_embeds),
 }
 
 masked_inputs = tokenizer(masked_text, return_tensors="pt").to(device)
-mask_token_index = (masked_inputs.input_ids == tokenizer.mask_token_id)[0].nonzero(as_tuple=True)[0]
+mask_positions = (masked_inputs.input_ids == tokenizer.mask_token_id)[0].nonzero(as_tuple=True)[0]
 
+print("\n\nPrediction")
 for label, embeds in ablation_runs.items():
     with torch.no_grad():
         mlm_logits = pretrain_model(
@@ -115,9 +116,18 @@ for label, embeds in ablation_runs.items():
             visual_token_type_ids=visual_token_type_ids,
         ).prediction_logits
 
-    top_5_tokens = torch.topk(mlm_logits[0, mask_token_index], 5, dim=-1).indices[0]
-    top_5_words = [tokenizer.decode([t]).strip() for t in top_5_tokens]
     print(f"\n\n{label}")
-    for word in top_5_words:
-        print(masked_text.replace("[MASK]", word))
+    if len(mask_positions) == 0:
+        print(f"No [MASK] token found in: {masked_text}")
+        continue
+
+    parts = masked_text.split("[MASK]")
+    for idx, pos in enumerate(mask_positions):
+        top_5_tokens = torch.topk(mlm_logits[0, pos], 5, dim=-1).indices
+        top_5_words = [tokenizer.decode([t]).strip() for t in top_5_tokens]
+        for word in top_5_words:
+            filled = "[MASK]".join(parts[: idx + 1]) + word + "[MASK]".join(parts[idx + 1 :])
+            print(filled)
+        if idx < len(mask_positions) - 1:
+            print("")
     print("")
