@@ -19,6 +19,11 @@ if len(sys.argv) < 3:
 else:
     text:str = sys.argv[2]
 
+if len(sys.argv) < 4:
+    masked_text:str = "A person hits a ball with a [MASK]"
+else:
+    masked_text:str = sys.argv[3]
+
 
 device:str = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -89,3 +94,21 @@ match_probs = torch.softmax(pretrain_outputs.seq_relationship_logits, dim=-1)[0]
 print("Statement:", text)
 print(f"Match probability (index 0): {match_probs[0].item():.4f} ({match_probs[0].item() * 100:.1f}%)")
 print(f"Non-match probability (index 1): {match_probs[1].item():.4f} ({match_probs[1].item() * 100:.1f}%)")
+
+
+# --- Option A: Masked Word Prediction (shows off VisualBERT's strongest pretraining head) ---
+masked_text = "A person hitting a ball with a [MASK]"
+masked_inputs = tokenizer(masked_text, return_tensors="pt").to(device)
+mask_token_index = (masked_inputs.input_ids == tokenizer.mask_token_id)[0].nonzero(as_tuple=True)[0]
+
+with torch.no_grad():
+    mlm_logits = pretrain_model(
+        **masked_inputs,
+        visual_embeds=visual_embeds,
+        visual_attention_mask=visual_attention_mask,
+        visual_token_type_ids=visual_token_type_ids,
+    ).prediction_logits
+
+top_5_tokens = torch.topk(mlm_logits[0, mask_token_index], 5, dim=-1).indices[0]
+print("Masked prompt:", masked_text)
+print("Top 5 predictions:", [tokenizer.decode([t]).strip() for t in top_5_tokens])
