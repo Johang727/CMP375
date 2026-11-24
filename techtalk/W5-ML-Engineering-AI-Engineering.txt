@@ -1,5 +1,5 @@
 Focus on repos with >500 stars & growth speed
- - SOmetimes they go viral
+ - Sometimes they go viral
 
  AI Egneineering: THe process of building applications with foundation models
   - LLMs can mean foundation models
@@ -27,3 +27,4 @@ Vector Database
  <>
 
 
+Chip Huyen

@@ -1,0 +1,141 @@
+Information Security
+
+1. Describe the process of ethical hacking (or hacking in general) using AI.
+    - Machine Speed: Anyone can spin up a bot to help them hack. Using obliterated models that have all safeguards removed, they can spin up a model that even has premade security and hacker tools built in. Anthropic hasn't released local models and has a ton of CyberSecurity rules in place for this reason.
+2. Is AI used too much in business software solutions?
+    - Yes, it's being used as a crutch, when it fails, it fails badly. They said they wouldn't be surprised if the Microsoft outage was due to AI. AI creates more vulnerabilities than humans due to having more outdated information.
+3. What security vulnerabilities have you witnessed that were primarily the cause of AI.
+    - Anyone can find vulnerabilities due to AI and because of more and more organization's reliance on AI coding without verification, there are more vulnerabilities seen in production that can be easily exploited by hackers and other AI models.
+---
+
+- One skill recommended to CyberSec | Answered 1 and 3
+    - Security in AI: Machine Speed
+    - Attackers are using premade skills with a collection of securily and hacker tools built into an AI. Someone who doesn't know what they are doing finds something on the internet and copy and paste. People are running obliterated models, removing guardrails. Claude has a lot of CyberSec rules. People who don't know what they are doing can use the obliterated models.
+
+New remote code execution found on Java, continously scan environments and patch vulnerabilities. Know the environment well, know the Software, Dependancies, Infrastructure. Have a list of what one's running to not have a bad time.
+
+- More or less AI use in what doing | Answers 3
+    - Matters where you work. Steven is bleeding edge, far more than this guy. There is a limit:
+        - Some people are trying to automate everything (as seen with airports), wouldn't be surprised if Microsoft outage was due to AI. AI creates more vulnerabilities than humans. It can be a crutch, and when it fails, it fails badly.
+
+
+- AI Certifications: They may become outdated as soon as you get them. Nobody is demanding AI Certs. Hands on experience is preferred.
+
+
+---
+
+AI before GenAI
+ - Marketing, anon, 1000 people live at once. A poll place.
+
+Machine Learning, not GenAI
+Translations from Google, (kinda GenAI now)
+
+20K points of data, LLMs can summarize them
+
+Clients all over the world, plenty of regulations.
+ - EU couldnt train on data due to gdpr privacy law
+ - OpenAI couldn't train on data.
+ - Data retention: 30 days
+
+
+SOC 2 Type II audit
+US-only processing / EU-only processing
+TLS 1.2+ in transit, AES-256 at rest
+
+
+
+Human review for AI: anything attached, clients would be able to review
+
+Can't guarantee PII, de-identified, but people type names into answers.
+
+No 3rd party training: agreement with no training on AI
+Clients can delete data, but OpenAI would keep that for 30 days for abuse monitoring
+Get consent.
+
+Ownership of outputs: who owns this? Customers own it since its their data.
+
+A document how AI is being used, options to delete data, etc.
+Security, how AI is encrypted.
+Coming up with internal policies on what is allowed.
+
+
+Inside company allow list:
+ - ChatGPT, no client data
+ - Training toggle off
+ - Claude for engineers
+    - 85% of code was written by AI.
+
+Not allowed:
+ - AI Browsers
+ - Other GenAI tools
+ - Client data
+
+Three frameworks:
+
+NIST - Manage the risk : free
+ISO - Prove it to buyers : audited
+OWASP - Built it securily : free
+
+ISO 42001: International Standard
+ - First AI management system standard.
+ - 20.5K over 3 years to implement, 1 month to certify.
+    - Time to implement depends on staff.
+ - No customers were quitting because of lack of ISO 42001
+
+OWASP Top 10 for LLM apps.
+
+LLM01: Prompt Injection
+
+A webpage hide instructions that make AI leak chat or do unintended behavior
+
+Prompt tuning: only approve prompts were sent to LLMs
+ - Client data would not be executed
+    - i.e., a message of "delete all the customer data"
+    - Summarize: ?
+
+LLM02: Sensitive info disclosure
+
+A user gets back someone else's personal data.
+
+De-identified by default, no customer PII in staff AI tools, propietary customer models tied to individual customers
+
+LLM03: Supply Chain
+
+A model vendor starts training on your data; Relying on one vendor
+
+Vendor review: DPA, SOC 2, contractual no-training; backup vendors OpenAI + Anthropic
+
+NIST AI RMF: Four functions
+ - Govern
+    - Ethics committe, signed policy
+ - Map
+    - Inventory of envery AI feature
+ - Measure
+    - Bias & hallucination reviews
+ - Manage
+    - Opt-in, human review, contracts
+
+
+NIST is voluntary, potentially required for government contractors
+
+Different levels on how AI is used: EU AI Act.
+
+Questionnares with sources
+
+In - Knowledge base
+AI - Drafts each answer & cites
+Me - Check citations, fix, refresh
+Risk - Wrong answer is a promise
+
+MCP: How AI can communicate with other services. Like an API.
+
+Vanta: AI compliance company.
+ - Check evidence for gaps
+ - Fill gaps in the risk register
+ - Rank vulnerabilities by severity and SLA
+ - Find stale Questionnare answers
+ - Draft control tests
+
+
+AIGP certifications
+
