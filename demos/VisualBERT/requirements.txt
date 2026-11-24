@@ -1,0 +1,18 @@
+--extra-index-url https://download.pytorch.org/whl/cu134
+torch
+torchvision
+
+
+
+# Hugging Face Transformers & VisualBERT dependencies
+
+transformers
+accelerate
+huggingface-hub
+
+
+
+# Image processing and numerical utilities
+
+pillow
+numpy
