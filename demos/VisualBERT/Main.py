@@ -2,7 +2,7 @@ import torch
 from PIL import Image
 from torchvision.models.detection import fasterrcnn_resnet50_fpn, FasterRCNN_ResNet50_FPN_Weights
 from torchvision.transforms.functional import to_tensor
-from transformers import BertTokenizer, VisualBertModel
+from transformers import BertTokenizer, VisualBertModel, VisualBertForPreTraining
 
 import sys, os
 
@@ -13,6 +13,12 @@ else:
     if not os.path.isfile(filename):
         print("Invalid File")
         exit(1)
+
+if len(sys.argv) < 3:
+    text:str = "A person hits a ball with a racket"
+else:
+    text:str = sys.argv[2]
+
 
 device:str = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -50,7 +56,6 @@ visual_embeds = torch.nn.functional.pad(raw_feats, (0, 2048 - raw_feats.shape[1]
 tokenizer = BertTokenizer.from_pretrained("google-bert/bert-base-uncased") # downloads and uses google's BERT tokenizer
 model = VisualBertModel.from_pretrained("uclanlp/visualbert-vqa-coco-pre").to(device).eval()
 
-text = "A person hits a ball with a racket"
 inputs = tokenizer(text, return_tensors="pt").to(device)
 
 visual_attention_mask = torch.ones((1, top_k), dtype=torch.long, device=device)
@@ -67,3 +72,20 @@ with torch.no_grad():
 print("Detected boxes (top 3):", detections["boxes"][:3].cpu().numpy())
 print("Fused sequence shape (text tokens + image regions):", outputs.last_hidden_state.shape)
 print("Pooled multimodal representation shape:", outputs.pooler_output.shape)
+
+# 4. Appended: Sentence-Image Match Probability via VisualBertForPreTraining
+pretrain_model = VisualBertForPreTraining.from_pretrained("uclanlp/visualbert-vqa-coco-pre").to(device).eval()
+
+with torch.no_grad():
+    pretrain_outputs = pretrain_model(
+        **inputs,
+        visual_embeds=visual_embeds,
+        visual_attention_mask=visual_attention_mask,
+        visual_token_type_ids=visual_token_type_ids,
+    )
+
+# seq_relationship_logits has shape [1, 2]; softmax turns those 2 logits into probabilities summing to 1.0
+match_probs = torch.softmax(pretrain_outputs.seq_relationship_logits, dim=-1)[0]
+print("Statement:", text)
+print(f"Match probability (index 0): {match_probs[0].item():.4f} ({match_probs[0].item() * 100:.1f}%)")
+print(f"Non-match probability (index 1): {match_probs[1].item():.4f} ({match_probs[1].item() * 100:.1f}%)")
