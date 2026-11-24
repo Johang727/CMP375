@@ -12,16 +12,14 @@ Todd Finner
    - Project manifest
    - Laws of the project are: every output has to be testable
    - Charactarization testing
-   - ENd-to-end testing: 94% accountability is strong
+   - End-to-end testing: 94% accountability is strong
 
    - Kubernetes, get all hardware and spec information & the AI will have the tech stack installed, and have it merge it together
    - User guide: sub-agent, non-programming persona + admin persona; walk through ui in in its sandbox.
    - Testing documentation: unit tests generated with the user guide.
 
 3. Is AI used in client communication? If so, do you think too much is used or too little?
- -
-
-The only issue with this is I don't know what else to ask other than what was already discussed.
+ - <I didn't ask this, but in hindsight, I could've refrased this as interpersonal communication instead of just clients>
 
 ----
 
