@@ -97,7 +97,6 @@ print(f"Non-match probability (index 1): {match_probs[1].item():.4f} ({match_pro
 
 
 # --- Option A: Masked Word Prediction (shows off VisualBERT's strongest pretraining head) ---
-masked_text = "A person hitting a ball with a [MASK]"
 masked_inputs = tokenizer(masked_text, return_tensors="pt").to(device)
 mask_token_index = (masked_inputs.input_ids == tokenizer.mask_token_id)[0].nonzero(as_tuple=True)[0]
 
