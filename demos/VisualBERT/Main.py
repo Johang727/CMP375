@@ -95,19 +95,26 @@ print("Statement:", text)
 print(f"Match probability (index 0): {match_probs[0].item():.4f} ({match_probs[0].item() * 100:.1f}%)")
 print(f"Non-match probability (index 1): {match_probs[1].item():.4f} ({match_probs[1].item() * 100:.1f}%)")
 
+print("\n\nPrediction")
 
-# --- Option A: Masked Word Prediction (shows off VisualBERT's strongest pretraining head) ---
+# Right after `visual_embeds` is constructed:
+ablation_runs = {
+    "With image features": visual_embeds,
+    "Zeroed visual_embeds": torch.zeros_like(visual_embeds),
+}
+
 masked_inputs = tokenizer(masked_text, return_tensors="pt").to(device)
 mask_token_index = (masked_inputs.input_ids == tokenizer.mask_token_id)[0].nonzero(as_tuple=True)[0]
 
-with torch.no_grad():
-    mlm_logits = pretrain_model(
-        **masked_inputs,
-        visual_embeds=visual_embeds,
-        visual_attention_mask=visual_attention_mask,
-        visual_token_type_ids=visual_token_type_ids,
-    ).prediction_logits
+for label, embeds in ablation_runs.items():
+    with torch.no_grad():
+        mlm_logits = pretrain_model(
+            **masked_inputs,
+            visual_embeds=embeds,
+            visual_attention_mask=visual_attention_mask,
+            visual_token_type_ids=visual_token_type_ids,
+        ).prediction_logits
 
-top_5_tokens = torch.topk(mlm_logits[0, mask_token_index], 5, dim=-1).indices[0]
-print("Masked prompt:", masked_text)
-print("Top 5 predictions:", [tokenizer.decode([t]).strip() for t in top_5_tokens])
+    top_5_tokens = torch.topk(mlm_logits[0, mask_token_index], 5, dim=-1).indices[0]
+    top_5_words = [tokenizer.decode([t]).strip() for t in top_5_tokens]
+    print(f"[{label}] Top 5 for '{masked_text}': {top_5_words}")
