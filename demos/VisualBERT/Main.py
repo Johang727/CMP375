@@ -117,4 +117,7 @@ for label, embeds in ablation_runs.items():
 
     top_5_tokens = torch.topk(mlm_logits[0, mask_token_index], 5, dim=-1).indices[0]
     top_5_words = [tokenizer.decode([t]).strip() for t in top_5_tokens]
-    print(f"[{label}] Top 5 for '{masked_text}': {top_5_words}")
+    print(f"\n\n{label}")
+    for word in top_5_words:
+        print(masked_text.replace("[MASK]", word))
+    print("")
