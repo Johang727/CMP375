@@ -4,7 +4,8 @@ from torchvision.models.detection import fasterrcnn_resnet50_fpn, FasterRCNN_Res
 from torchvision.transforms.functional import to_tensor
 from transformers import BertTokenizer, VisualBertModel, VisualBertForPreTraining
 
-import sys, os
+
+import sys, os, itertools
 
 if len(sys.argv) == 1:
     filename:str = "tennis_racket_1.jpg"
@@ -95,8 +96,6 @@ print("Statement:", text)
 print(f"Match probability (index 0): {match_probs[0].item():.4f} ({match_probs[0].item() * 100:.1f}%)")
 print(f"Non-match probability (index 1): {match_probs[1].item():.4f} ({match_probs[1].item() * 100:.1f}%)")
 
-print("\n\nPrediction")
-
 # 5. Multi-Mask Prediction + Zeroed visual_embeds Ablation
 ablation_runs = {
     "With image features": visual_embeds,
@@ -121,13 +120,14 @@ for label, embeds in ablation_runs.items():
         print(f"No [MASK] token found in: {masked_text}")
         continue
 
+    # Collect top-3 words per [MASK] position, then print every full sentence combination
+    per_mask_top3 = []
+    for pos in mask_positions:
+        top_3_tokens = torch.topk(mlm_logits[0, pos], 3, dim=-1).indices
+        per_mask_top3.append([tokenizer.decode([t]).strip() for t in top_3_tokens])
+
     parts = masked_text.split("[MASK]")
-    for idx, pos in enumerate(mask_positions):
-        top_5_tokens = torch.topk(mlm_logits[0, pos], 5, dim=-1).indices
-        top_5_words = [tokenizer.decode([t]).strip() for t in top_5_tokens]
-        for word in top_5_words:
-            filled = "[MASK]".join(parts[: idx + 1]) + word + "[MASK]".join(parts[idx + 1 :])
-            print(filled)
-        if idx < len(mask_positions) - 1:
-            print("")
+    for combo in itertools.product(*per_mask_top3):
+        filled = parts[0] + "".join(word + part for word, part in zip(combo, parts[1:]))
+        print(filled)
     print("")
